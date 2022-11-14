@@ -1,0 +1,29 @@
+def deposit (amount):
+    global balance 
+    balance = balance + amount
+
+def withdrawal (amount):
+    global balance
+    if (balance >= amount):
+        balance = balance - amount 
+        print("transaction is successful")
+    else:
+        print("withdrawal is not allowed")
+
+list = [] 
+balance = 0
+
+while True:
+    data = input("please enter the transaction details:\n") 
+    if data == 'Exit' or data == 'exit': 
+        break
+    list.append(data.split())
+print(list)
+
+for i in list:
+    if (i[0] == 'D'):
+        deposit (int(i[1])) 
+    elif (i[0]=='W'):
+        withdrawal (int(i[1]))
+
+print("balance is:", balance)
